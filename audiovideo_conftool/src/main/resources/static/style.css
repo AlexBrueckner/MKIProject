@@ -221,6 +221,7 @@ input[type=button]:active, input[type=submit]:active {
 }
 
 #textmessage{
+	display: none;
 	position : absolute;
 	left: 50%;
 	top: 50%;
