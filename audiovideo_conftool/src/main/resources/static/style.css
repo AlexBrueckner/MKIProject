@@ -220,6 +220,11 @@ input[type=button]:active, input[type=submit]:active {
 	text-align: center;
 }
 
+#textmessage{
+	position : absolute;
+
+}
+
 #button-leave {
 	text-align: center;
 	position: absolute;
@@ -326,7 +331,7 @@ input[type=button]:active, input[type=submit]:active {
 
 
 
- 
+
 
 
 
@@ -349,7 +354,7 @@ transform
 
 
 
- 
+
 
 
 
@@ -382,7 +387,7 @@ keyframes disapear { 50% {
 
 
 
- 
+
 
 
 
@@ -405,7 +410,7 @@ transform
 
 
 
- 
+
 
 
 
