@@ -220,7 +220,7 @@ input[type=button]:active, input[type=submit]:active {
 	text-align: center;
 }
 
-#textmessage{
+#textmessages{
 	display: none;
 	position : absolute;
 	left: 50%;
