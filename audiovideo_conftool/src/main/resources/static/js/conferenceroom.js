@@ -26,11 +26,11 @@ window.onbeforeunload = function() {
 ws.onmessage = function(message) {
 	var parsedMessage = JSON.parse(message.data);
 	console.info('Received message: ' + message.data);
-$('#textmessages').append($('<li>').text(message.data));
+
 	switch (parsedMessage.id) {
 	case 'textmessage':
 	console.log("Received textmessage : ");
-
+	$('#textmessages').append($('<li>').text(parsedMessage.text));
 	break;
 	case 'existingParticipants':
 		onExistingParticipants(parsedMessage);
