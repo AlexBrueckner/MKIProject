@@ -12,8 +12,8 @@
 <script>
 		function redirectToChat(){
 		
-				sessionStorage.setItem("roomname", document.getElementById("room").innerHTML); 			
-				sessionStorage.setItem("username", document.getElementById("username").innerHTML);
+				sessionStorage.setItem("roomname", document.getElementById("room").value); 			
+				sessionStorage.setItem("username", document.getElementById("username").value);
 				console.log(document.getElementById("room").value);
 				console.log(document.getElementById("room").value);
 				window.location = "room.html";
