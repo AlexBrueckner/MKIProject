@@ -58,12 +58,16 @@ ws.onmessage = function(message) {
 }
 
 function register() {
-	name = document.getElementById('name').value;
-	var room = document.getElementById('roomName').value;
-
-	document.getElementById('room-header').innerText = 'ROOM ' + room;
-	document.getElementById('join').style.display = 'none';
-	document.getElementById('room').style.display = 'block';
+//name = document.getElementById('name').value;
+//var room = document.getElementById('roomName').value;
+		
+		name = localStorage.getItem("username");
+		var room = localStorage.getItem("room");
+		
+		
+	document.getElementById('roomname').innerText = 'ROOM ' + room;
+	//document.getElementById('join').style.display = 'none';
+	//document.getElementById('roomname').style.display = 'block';
 
 	var message = {
 		id : 'joinRoom',
@@ -135,8 +139,8 @@ function leaveRoom() {
 		participants[key].dispose();
 	}
 
-	document.getElementById('join').style.display = 'block';
-	document.getElementById('room').style.display = 'none';
+	//document.getElementById('join').style.display = 'block';
+	//document.getElementById('room').style.display = 'none';
 
 	ws.close();
 }

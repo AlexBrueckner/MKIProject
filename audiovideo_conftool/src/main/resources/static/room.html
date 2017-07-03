@@ -2,6 +2,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<link rel="styleSheet" href="style1.css" type="text/css" media="screen">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
@@ -12,42 +13,46 @@
 <script src="./js/participant.js"></script>
 <script src="./js/kurento-utils.js"></script>
 <script>
-		function redirectToChat(){
-		
-				localStorage.setItem("roomname", document.getElementById("room").innerHTML); 
-				localStorage.setItem("username", document.getElementById("username").innerHTML));
-				window.location = "room.html";
-		
-		}
-		
-		
-
+document.addEventListener("DOMContentLoaded", function(event) {
+  register();
+});
 </script>
+
 </head>
 <body background="images/Background.jpg">
 
-	<!--- Login page -!-->
-	<div class="page" id="loginpage" style="width: 100%"; display: block;>
-		<div class="container">
-			<div class="row">
-				<br>
-				<img style="margin-top: 190px" src="images/79709-200.png" height="200" width="200" alt="">
-				<form style="margin: 20% 0 0 15%" action="" class="col-lg-4">
-					<div class="form-group">
-						<div class="input-group">
-							<input class="form-control" id="username" type="text" placeholder="Username">
-						</div>
-					</div>
+<!--- Room page -!-->
+<div class="row">
+	<div class="userlist col-md-2	">
+		<div class="user-container" id="user-container">
+		</div>
 
-					<div class="form-group">
-						<div class="input-group">
-							<input class="form-control" id="room" type="text" placeholder="Room">
-						</div>
-					</div>
+		
+			  
+		<div class="buttons" style="position: absolute; bottom: 5px;">
+			<button>Video</button>
+			<button>Audio</button>
+		</div>
 
-					<button class="btn btn-md btn-block btn-primary" name="button">Enter</button>
+	</div>
+
+	<div class="col-md-10">
+		<div class="screenfunc">
+			<h5 class="roomname" id="roomname"></h5>
+		</div>
+
+		<div class="chatbox">
+			<div class="chatlogs">
 			</div>
+
+			<div class="chat-form">
+				<textarea></textarea>
+				<button>Send</button>
+			</div>
+
 		</div>
 	</div>
+</div>
+
 </body>
 </html>
