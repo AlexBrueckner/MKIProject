@@ -64,6 +64,9 @@ function register() {
 		name = localStorage.getItem("username");
 		var room = localStorage.getItem("room");
 		
+		console.log("name = " + name);
+		console.log("room = " + room);
+		
 		
 	document.getElementById('roomname').innerText = 'ROOM ' + room;
 	//document.getElementById('join').style.display = 'none';
