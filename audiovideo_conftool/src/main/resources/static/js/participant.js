@@ -33,6 +33,7 @@ function Participant(name) {
 	container.id = name;
 	var span = document.createElement('span');
 	var video = document.createElement('video');
+	video.className += " form-control";
 	var rtcPeer;
 
 	container.appendChild(video);
