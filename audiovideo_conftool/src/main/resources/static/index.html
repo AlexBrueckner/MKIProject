@@ -1,22 +1,28 @@
 <html>
 <head>
 <meta charset="utf-8">
-<link rel="styleSheet" href="style1.css" type="text/css" media="screen">
-
+<!-- <link rel="styleSheet" href="style.css" type="text/css" media="screen"> -->
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 <script src="webjars/adapter.js/adapter.js"></script>
 <script src="./js/conferenceroom.js"></script>
 <script src="./js/participant.js"></script>
 <script src="./js/kurento-utils.js"></script>
 </head>
-<body background="images/Background.jpg">
+<body background="Background.jpg">
 	<div id="container">
 		<div id="wrapper">
-			<div class="page" id="join" style="width: 100%"; display: block;>
+
+      <!------------------- LOGIN ------------------>
+			<div class="page" id="join" style="width: 100%; display: block;">
 				<div class="container">
 					<div class="row">
 						<br>
-						<img style="margin-top: 190px" src="images/79709-200.png" height="200" width="200" alt="">
+						<img style="margin-top: 190px" src="79709-200.png" height="200" width="200" alt="">
 						<form style="margin: 20% 0 0 15%" onsubmit="register(); return false;" accept-charset="UTF-8" class="col-lg-4">
 							<div class="form-group">
 								<div class="input-group">
@@ -36,66 +42,53 @@
 				</div>
 			</div>
 
-			<!-- <div id="join" class="animate join">
-				<h1>Join a Room</h1>
-				<form onsubmit="register(); return false;" accept-charset="UTF-8">
-					<p>
-						<input type="text" name="name" value="" id="name"
-							placeholder="Username" required>
-					</p>
-					<p>
-						<input type="text" name="room" value="" id="roomName"
-							placeholder="Room" required>
-					</p>
-					<p class="submit">
-						<input type="submit" name="commit" value="Join!">
-					</p>
-				</form>
-			</div> -->
+      <!------------------- ROOM ------------------>
+      <div class="container-fluid">
+        <div class="row" id="room" style="display: none;">
+        	<div class="userlist col-md-2" style="border-right: 1px solid #eee; height:100%">
+        		<div class="user-container" id="participants">
+        		</div>
 
-      <div class="row" id="room" style="display: none;">
-      	<div class="userlist col-md-2	">
-      		<div class="user-container" id="participants">
-      		</div>
+        		<div class="buttons" style="position: absolute; bottom: 5px;">
+        			<button class="btn btn-primary">Video</button>
+        			<button class="btn btn-primary">Audio</button>
+        		</div>
+
+        	</div>
+
+        	<div class="col-md-10" style="height:100%">
+        		<div class="screenfunc" style="height:70%">
+        			<h5 class="roomname" id="room-header">as</h5>
+        		</div>
 
 
+        		<div class="row chatbox" style="position:absolute; bottom:5px; width:100%">
+              <div class="col-md-12">
+        			<div class="chatlogs form-control" style="height:150px;border: 0px solid #000;background-color:#ccc;">
+        			</div>
+              <br>
+        			<div class="chat-form">
+        				<!-- <textarea class="form-control"></textarea> -->
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Message...">
+                      <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button">Send</button>
+                      </span>
+                    </div><!-- /input-group -->
+                  </div><!-- /.col-lg-6 -->
+                </div>
 
-      		<div class="buttons" style="position: absolute; bottom: 5px;">
-      			<button>Video</button>
-      			<button>Audio</button>
-      		</div>
+        			</div>
+        		</div>
+            </div>
+        	</div>
 
-      	</div>
-
-      	<div class="col-md-10">
-      		<div class="screenfunc">
-      			<h5 class="roomname" id="room-header"></h5>
-      		</div>
-
-      		<div class="chatbox">
-      			<div class="chatlogs">
-      			</div>
-
-      			<div class="chat-form">
-      				<textarea></textarea>
-      				<button id="button-send" onmouseup="sendTextMessage()">Send</button>
-      			</div>
-
-      		</div>
-      	</div>
+        </div>
       </div>
 
-			<!-- <div id="room" style="display: none;">
-				<h2 id="room-header"></h2>
-				<div id="participants"></div>
 
-				<input type="text" id="messagefield"
-					value="">
-				<input type="button" id="button-send" onmouseup="sendTextMessage()"
-					value="Send Message">
-				<input type="button" id="button-leave" onmouseup="leaveRoom();"
-					value="Leave room">
-			</div> -->
 
 		</div>
 	</div>
