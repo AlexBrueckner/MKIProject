@@ -38,7 +38,7 @@ function Participant(name) {
 	container.appendChild(video);
 	container.appendChild(span);
 	container.onclick = switchContainerClass;
-	document.getElementById('user-container').appendChild(container);
+	document.getElementById('participants').appendChild(container);
 
 	span.appendChild(document.createTextNode(name));
 

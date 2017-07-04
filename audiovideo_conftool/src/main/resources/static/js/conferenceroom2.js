@@ -28,6 +28,10 @@ ws.onmessage = function(message) {
 	console.info('Received message: ' + message.data);
 
 	switch (parsedMessage.id) {
+	case 'textmessage':
+	console.log("Received textmessage : ");
+	$('#textmessages').append($('<li>').text(parsedMessage.text));
+	break;
 	case 'existingParticipants':
 		onExistingParticipants(parsedMessage);
 		break;
@@ -54,12 +58,19 @@ ws.onmessage = function(message) {
 }
 
 function register() {
-	name = document.getElementById('name').value;
-	var room = document.getElementById('roomName').value;
-
-	document.getElementById('room-header').innerText = 'ROOM ' + room;
-	document.getElementById('join').style.display = 'none';
-	document.getElementById('room').style.display = 'block';
+//name = document.getElementById('name').value;
+//var room = document.getElementById('roomName').value;
+		
+		name = sessionStorage.getItem("username");
+		var room = sessionStorage.getItem("roomname");
+		
+		console.log("name = " + name);
+		console.log("room = " + room);
+		
+		
+	document.getElementById('roomname').innerText = 'ROOM ' + room;
+	//document.getElementById('join').style.display = 'none';
+	//document.getElementById('roomname').style.display = 'block';
 
 	var message = {
 		id : 'joinRoom',
@@ -131,8 +142,8 @@ function leaveRoom() {
 		participants[key].dispose();
 	}
 
-	document.getElementById('join').style.display = 'block';
-	document.getElementById('room').style.display = 'none';
+	//document.getElementById('join').style.display = 'block';
+	//document.getElementById('room').style.display = 'none';
 
 	ws.close();
 }
@@ -161,6 +172,12 @@ function onParticipantLeft(request) {
 	var participant = participants[request.name];
 	participant.dispose();
 	delete participants[request.name];
+}
+
+function sendTextMessage(){
+var text = $('#messagefield').val();
+console.log("TExt : " + text);
+sendMessage({id : 'textmessage', text : text});
 }
 
 function sendMessage(message) {
