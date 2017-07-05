@@ -18,7 +18,7 @@
 		<div id="wrapper">
 
       <!------------------- LOGIN ------------------>
-			<div class="page" id="join" style="width: 100%; display: block;">
+			<div class="page" id="join" style="width: 100%; display: none;">
 				<div class="container">
 					<div class="row">
 						<br>
@@ -44,9 +44,13 @@
 
       <!------------------- ROOM ------------------>
       <div class="container-fluid">
-        <div class="row" id="room" style="display: none;">
+        <div class="row" id="room" style="">
         	<div class="userlist col-md-2" style="border-right: 1px solid #eee; height:100%">
         		<div class="user-container" id="participants">
+              <div class="participant main" id="asd">
+                <video class=" form-control" id="video-asd" autoplay=""/>
+                <span class="form-control">asd</span>
+              </div>
         		</div>
 
         		<div class="buttons" style="position: absolute; bottom: 5px;">
@@ -56,7 +60,7 @@
 
         	</div>
 
-        	<div class="col-md-10" style="height:100%">
+        	<div class="col-md-8" style="height:100%">
         		<div class="screenfunc" style="height:70%">
         			<h5 class="roomname" id="room-header">as</h5>
         		</div>
